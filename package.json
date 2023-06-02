@@ -2,7 +2,11 @@
   "name": "hypergamma",
   "private": true,
   "version": "0.0.0",
+  "main": "./dist/.commoners/main/index.js",
   "type": "module",
+  "workspaces": [
+    "services/**"
+  ],
   "scripts": {
     "start": "npm run dev",
     "dev": "vite",

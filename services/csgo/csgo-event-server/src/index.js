@@ -58,10 +58,7 @@ export default async function createEventServer({ port, staticFilePath = '' }) {
 
         clients.push(newClient);
 
-        request.on('close', () => {
-            console.log(`${clientId} Connection closed`);
-            clients = clients.filter(client => client.id !== clientId);
-        });
+        request.on('close', () => clients = clients.filter(client => client.id !== clientId));
     }
 
     app.get('/installed', (req, res) => {
@@ -73,7 +70,7 @@ export default async function createEventServer({ port, staticFilePath = '' }) {
 
     // Start the event server
     return app.listen(port, () => {
-        console.log(`View real-time events from CS:GO at http://127.0.0.1:${port}`) // NOTE: This will always be local
+        console.log(`Subscribe to real-time events from CS:GO at http://127.0.0.1:${port}/events`) // NOTE: This will always be local
     })
 
 }

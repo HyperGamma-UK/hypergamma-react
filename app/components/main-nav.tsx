@@ -6,29 +6,26 @@ export function MainNav({
   className,
   ...props
 }: React.HTMLAttributes<HTMLElement>) {
+  
+  const routes = [
+    { name: 'Home', path: "/"},
+    { name: 'Devices', path: "/devices"},
+    { name: 'Hyper+', path: "/plus"},
+  ]
+
   return (
     <nav
       className={cn("flex items-center space-x-4 lg:space-x-6", className)}
       {...props}
     >
-      <NavLink
-        to="/"
-        className="text-sm font-medium transition-colors hover:text-primary"
-      >
-        Home
+      {routes.map(o => {
+        return <NavLink
+          to={o.path}
+          className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === o.path ? '' : 'text-muted-foreground'}`}
+        >
+        {o.name}
       </NavLink>
-      <NavLink
-        to="/devices"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-      >
-        Devices
-      </NavLink>
-      <NavLink
-        to="/plus"
-        className="disabled text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-      >
-        Hyper+
-      </NavLink>
+      })}
     </nav>
   )
 }

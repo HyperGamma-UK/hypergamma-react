@@ -1,6 +1,4 @@
-"use client"
-
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, Cell, ResponsiveContainer, XAxis, YAxis } from "recharts"
 
 const data = [
   {
@@ -53,10 +51,10 @@ const data = [
   },
 ]
 
-export function Overview() {
+export function Overview({ toPlot = data }) {
   return (
     <ResponsiveContainer width="100%" height={350}>
-      <BarChart data={data}>
+      <BarChart data={toPlot}>
         <XAxis
           dataKey="name"
           stroke="#888888"
@@ -69,9 +67,16 @@ export function Overview() {
           fontSize={12}
           tickLine={false}
           axisLine={false}
-          tickFormatter={(value) => `$${value}`}
+          tickFormatter={(value) => value}
+          domain={[-1, 1]}
         />
-        <Bar dataKey="total" fill="#adfa1d" radius={[4, 4, 0, 0]} />
+        <Bar dataKey="total">
+          {
+            toPlot.map((entry, index) => {
+              return <Cell key={`cell-${index}`} fill={entry.total < 0 ? '#FF886D': "#adfa1d"}  strokeWidth={index === 2 ? 4 : 1}/>
+            })
+          }
+        </Bar>
       </BarChart>
     </ResponsiveContainer>
   )

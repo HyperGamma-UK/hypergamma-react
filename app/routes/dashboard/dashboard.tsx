@@ -10,17 +10,27 @@ import {
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 // import { CalendarDateRangePicker } from "../components/date-range-picker"
-import { MainNav } from "../../components/main-nav"
 import { Overview } from "../../components/overview"
-import { RecentSales } from "../../components/recent-sales"
+import { RecentSessions } from "../../components/recent-sessions"
 // import { Search } from "../../components/search"
 // import TeamSwitcher from "../components/team-switcher"
-import { UserNav } from "../../components/user-nav"
 import Analytics from "./analytics"
+import Nav from "@/app/components/nav"
+
+
+const getDateFromToday = (offset = 0) => {
+  const date = new Date()
+  date.setDate(date.getDate() + offset)
+  return date.toDateString()
+}
+
+const getStat = () => (2*Math.random() - 1) * 0.7 // Ensure random number is no greater than Math.abs(0.7)
+const data = Array.from({ length: 12 }, (_, i) => {return { name: getDateFromToday(-(i + 1)), total: getStat() }})
 
 export default function Dashboard() {
   return (
     <>
+      <Nav />
       <div className="hidden flex-col md:flex">
         <div className="flex-1 space-y-4 p-8 pt-6">
           {/* <div className="flex items-center justify-between space-y-2">
@@ -48,25 +58,24 @@ export default function Dashboard() {
             </TabsList>
 
             <TabsContent value="overview" className="space-y-4">
-              <Analytics />
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
                 <Card className="col-span-4">
                   <CardHeader>
                     <CardTitle>Overview</CardTitle>
                   </CardHeader>
                   <CardContent className="pl-2">
-                    <Overview />
+                    <Overview toPlot={data.slice().reverse()}/>
                   </CardContent>
                 </Card>
                 <Card className="col-span-3">
                   <CardHeader>
-                    <CardTitle>Recent Sales</CardTitle>
+                    <CardTitle>Recent Sessions</CardTitle>
                     <CardDescription>
-                      You made 265 sales this month.
+                      You had 20 sessions in the last 30 days.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <RecentSales />
+                    <RecentSessions data={data}/>
                   </CardContent>
                 </Card>
               </div>

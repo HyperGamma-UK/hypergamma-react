@@ -52,7 +52,7 @@ export function UserNav() {
             </DropdownMenuItem>
           </Link>
 
-          <Link to="/settings">
+          <Link to="/settings" className="disabled">
             <DropdownMenuItem>
               <Settings className="mr-2 h-4 w-4" />
               <span>Settings</span>

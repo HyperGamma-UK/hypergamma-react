@@ -27,7 +27,7 @@ export default function HyperPlus() {
     
   return <>
     <Nav />
-    <div className="hidden flex-col md:flex">
+    <div className="flex-col md:flex">
       <div className="flex-1 space-y-4 p-8 pt-6">
         <div className="flex-1 space-x-2">
           {'csgo' in installed ? <Link className={buttonVariants({ })} to={installed.csgo ? `steam://launch/${appid}` : `steam://install/${appid}`}>{installed.csgo ? 'Launch CS:GO' : 'Install CS:GO'}</Link> : <ButtonLoading>Fetching CS:GO Info</ButtonLoading> } 

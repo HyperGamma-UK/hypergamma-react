@@ -1,6 +1,6 @@
 
 import { initDevice, Devices } from 'device-decoder'
-import setState from './state'
+import setState, { subscribe } from './state'
 
 export let active = null
 
@@ -42,6 +42,30 @@ export const connect = async (mode, key) => {
 
       return device
 }
+
+const toZero = 1000 * 60 * 60 // 1hr
+let tStart
+
+subscribe('decoded.heg', ({ value }) => {
+    if (!tStart) tStart = Date.now()
+        
+    const tDiff = Date.now() - tStart
+    const progress = (toZero - tDiff) / toZero
+    
+    setState({
+        focus: `${(100*value).toFixed(2)}%`,
+        mentalfatigue: `${(100*(1 - progress)).toFixed(1)}%`,
+        cognitiveload: `${(100*(1 / value) / 5).toFixed(2)}`
+    })
+})
+
+
+
+
+
+
+
+
 
 export const disconnect = async () => {
     if (!active) throw new Error('No device to disconnect from')

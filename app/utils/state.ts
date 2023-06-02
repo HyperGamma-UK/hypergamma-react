@@ -3,7 +3,7 @@ let subscriptions = {}
 
 let allSubscriptions = {}
 
-export const states = {}
+export const states: {[x:string]: any} = {}
 
 const infoSubscribeSymbol = Symbol('infoSubscribeSymbol')
 
@@ -57,7 +57,9 @@ let runOnPrimitiveValues = (obj, path = []) => {
     for (let key in obj) {
         const fullKey = [...path, key].join('.')
         if (typeof obj[key] === 'object') runOnPrimitiveValues(obj[key], [...path, key])
-        if (subscriptions[fullKey]) Object.values(subscriptions[fullKey]).forEach((callback) => callback(obj[key]))
+        if (subscriptions[fullKey]) Object.values(subscriptions[fullKey]).forEach((callback) => {
+            callback({  value: obj[key] })
+        })
     }
 }
 
@@ -72,7 +74,14 @@ export const setState = (info) => {
     runOnPrimitiveValues(info)
 
     // Run object subscriptions
-    if (subscriptions[infoSubscribeSymbol]) Object.values(subscriptions[infoSubscribeSymbol]).forEach((callback) => callback(info))
+    if (subscriptions[infoSubscribeSymbol]) Object.values(subscriptions[infoSubscribeSymbol]).forEach((callback) => callback({ value: info }))
+}
+
+export const getState = (state='') => {
+    const path = state.split('.')
+    let target = states
+    path.forEach(prop => target = target?.[prop])
+    return { value: target }
 }
 
 export default setState

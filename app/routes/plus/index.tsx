@@ -16,39 +16,7 @@ import { isInstalled, appid } from '../../services/csgo/index'
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ButtonLoading } from "@/app/components/button-loading";
-import  { subscribe, unsubscribe } from "@/app/utils/state";
-
-export function LiveCardUpdates({
-  primaryState = '',
-  secondaryState = ''
-}) {
-
-
-  const [ primaryUpdate, setPrimaryUpdate ] = useState({});
-
-  if (primaryState) {
-    const id = subscribe(primaryState, (update: any) => {
-      unsubscribe(id) // Unsubscribe previous subscription
-      setPrimaryUpdate(update)
-    })
-  }
-
-  const [ secondaryUpdate, setSecondaryUpdate ] = useState({});
-
-  if (secondaryState) {
-    const id = subscribe(secondaryState, (update: any) => {
-      unsubscribe(id) // Unsubscribe previous subscription
-      setSecondaryUpdate(update)
-    })
-  }
-
-  return <CardContent>
-    <div className="text-2xl font-bold">{primaryUpdate.value  ?? 'N/A'}</div>
-    <p className="text-xs text-muted-foreground">
-      {secondaryState ? secondaryUpdate.value : `Previous Value: ${primaryState.previous ?? 'N/A'}`}
-    </p>
-  </CardContent>
-}
+import LiveCard, { LiveCardUpdates } from "@/app/components/live-card";
 
 
 export default function HyperPlus() {
@@ -68,33 +36,11 @@ export default function HyperPlus() {
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
  
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
-                App Name
-              </CardTitle>
-              <Gamepad className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <LiveCardUpdates primaryState='provider-name' secondaryState='player-activity'/>
-          </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
-                User
-              </CardTitle>
-              <LucidePersonStanding className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <LiveCardUpdates primaryState='player-name' secondaryState='provider-steamid'/>
-          </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
-                Health
-              </CardTitle>
-              <Heart className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <LiveCardUpdates primaryState='health'/>
-          </Card>
+          <LiveCard name="App Name" Icon={Gamepad} primaryState='provider-name' secondaryState='player-activity'></LiveCard>
+
+          <LiveCard name="User" Icon={LucidePersonStanding} primaryState='player-name' secondaryState='provider-steamid'></LiveCard>
+
+          <LiveCard name="Health" Icon={Heart} primaryState="player-state-health"></LiveCard>
         </div>
         {/* <Separator />
         <br/>

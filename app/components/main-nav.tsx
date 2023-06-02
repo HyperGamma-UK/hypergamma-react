@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { cn } from "@/lib/utils"
 
@@ -11,24 +11,24 @@ export function MainNav({
       className={cn("flex items-center space-x-4 lg:space-x-6", className)}
       {...props}
     >
-      <Link
+      <NavLink
         to="/"
         className="text-sm font-medium transition-colors hover:text-primary"
       >
         Home
-      </Link>
-      <Link
+      </NavLink>
+      <NavLink
         to="/devices"
-        className="disabled text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
         Devices
-      </Link>
-      <Link
+      </NavLink>
+      <NavLink
         to="/plus"
         className="disabled text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
         Hyper+
-      </Link>
+      </NavLink>
     </nav>
   )
 }

@@ -53,9 +53,9 @@ subscribe('decoded.heg', ({ value }) => {
     const progress = (toZero - tDiff) / toZero
     
     setState({
-        focus: `${(100*value).toFixed(2)}%`,
-        mentalfatigue: `${(100*(1 - progress)).toFixed(1)}%`,
-        cognitiveload: `${(100*(1 / value) / 5).toFixed(2)}`
+        focus: (100*value).toFixed(2),
+        mentalfatigue: (100*(1 - progress)).toFixed(1),
+        cognitiveload: (100*(1 / value) / 5).toFixed(2)
     })
 })
 

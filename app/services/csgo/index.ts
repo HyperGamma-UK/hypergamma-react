@@ -6,7 +6,7 @@ import { setState } from '../../utils/state'
 
 export const appid = 730
 
-const backendBaseUri = `http://127.0.0.1:${csgo}`
+const backendBaseUri = `http://127.0.0.1:${globalThis.commoners.services.csgo.port}`
 
 export const isInstalled = async () => fetch(`${backendBaseUri}/installed`).then((res: any) => res.json(res))
 

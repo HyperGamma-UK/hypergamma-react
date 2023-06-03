@@ -15,6 +15,7 @@ import * as devices from '../../utils/devices';
 import { Button } from "@/components/ui/button";
 import Nav from "@/app/components/nav";
 import LiveCard from "@/app/components/live-card";
+import LiveDataChart from "@/app/components/live-data-chart";
 
 
 export default function Devices() {
@@ -76,6 +77,8 @@ export default function Devices() {
         {/* <Separator />
         <br/>
         <span className="font-semibold text-xl tracking-tight">Data Streams</span> */}
+        <LiveDataChart name="Live Data Stream" state="decoded.heg"/>
+
       </div>
     </div>
   </>

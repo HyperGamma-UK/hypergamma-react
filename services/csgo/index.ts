@@ -1,6 +1,6 @@
 import { csgo } from '../ports'
 import createEventServer from './csgo-event-server/src'
 
-const server = createEventServer({
-  port: csgo
-})
+
+const port = process.argv[2] ?? csgo
+const server = createEventServer({ port })

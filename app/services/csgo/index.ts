@@ -6,12 +6,12 @@ import { setState } from '../../utils/state'
 
 export const appid = 730
 
-const backendBaseUri = `http://127.0.0.1:${globalThis.commoners.services.csgo.port}`
+const { url } = globalThis.commoners.services.csgo
 
-export const isInstalled = async () => fetch(`${backendBaseUri}/installed`).then((res: any) => res.json(res))
+export const isInstalled = async () => fetch(`${url}/installed`).then((res: any) => res.json(res))
 
 // ---------------------------- Get CS:GO Events ----------------------------
-var source = new EventSource(`${backendBaseUri}/events`);
+var source = new EventSource(`${url}/events`);
 
 let previousUpdate: any = {}
 

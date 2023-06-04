@@ -1,7 +1,9 @@
 {
-  "name": "hypergamma",
-  "private": true,
+  "name": "Hypergamma",
   "version": "0.0.0",
+  "author": "Garrett Flynn <garrettmflynn@gmail.com>",
+  "description": "Performance monitoring using fNIRS data",
+  "private": true,
   "main": "./dist/.commoners/main/index.js",
   "type": "module",
   "workspaces": [

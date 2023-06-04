@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import { cn } from "@/lib/utils"
 
@@ -12,6 +12,8 @@ export function MainNav({
     { name: 'Devices', path: "/devices"},
     { name: 'Hyper+', path: "/plus"},
   ]
+
+  const location = useLocation();
 
   return (
     <nav

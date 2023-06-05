@@ -58,7 +58,9 @@ let runOnPrimitiveValues = (obj, path = []) => {
         const fullKey = [...path, key].join('.')
         if (typeof obj[key] === 'object') runOnPrimitiveValues(obj[key], [...path, key])
         if (subscriptions[fullKey]) Object.values(subscriptions[fullKey]).forEach((callback) => {
-            callback({  value: obj[key] })
+            const update = obj[key]
+            if (!('value' in update)) update = {  value: update }
+            callback(update)
         })
     }
 }

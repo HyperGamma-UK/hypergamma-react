@@ -56,12 +56,14 @@ let runOnPrimitiveValues = (obj, path = []) => {
     if (path.length > maxDepth) return
     for (let key in obj) {
         const fullKey = [...path, key].join('.')
-        if (typeof obj[key] === 'object') runOnPrimitiveValues(obj[key], [...path, key])
-        if (subscriptions[fullKey]) Object.values(subscriptions[fullKey]).forEach((callback) => {
-            const update = obj[key]
-            if (!('value' in update)) update = {  value: update }
-            callback(update)
-        })
+        const update = obj[key]
+        if (update && typeof update === 'object') runOnPrimitiveValues(update, [...path, key])
+        if (subscriptions[fullKey]) {
+            Object.values(subscriptions[fullKey]).forEach((callback) => {
+                if (update && typeof update === 'object' && 'value' in update) callback(update)
+                else callback({value: update})
+            })
+        }
     }
 }
 

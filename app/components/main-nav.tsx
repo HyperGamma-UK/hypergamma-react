@@ -8,9 +8,9 @@ export function MainNav({
 }: React.HTMLAttributes<HTMLElement>) {
   
   const routes = [
-    { name: 'Home', path: "/"},
-    { name: 'Devices', path: "/devices"},
-    { name: 'Hyper+', path: "/plus"},
+    { name: 'Home', path: "/" },
+    { name: 'Devices', path: "/devices" },
+    { name: 'Hyper+', path: "/plus" }
   ]
 
   const location = useLocation();

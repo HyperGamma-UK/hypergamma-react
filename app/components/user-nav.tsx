@@ -30,7 +30,7 @@ export function UserNav() {
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">Garrett Flynn</p>
             <p className="text-xs leading-none text-muted-foreground">
-              garrett.flynn@hypergamma.co.uk
+              GarrettFlynn@hypergamma.co.uk
             </p>
           </div>
         </DropdownMenuLabel>

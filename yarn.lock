@@ -1807,17 +1807,17 @@ detect-node-es@^1.1.0:
   resolved "https://registry.npmjs.org/detect-node-es/-/detect-node-es-1.1.0.tgz"
   integrity sha512-ypdmJU/TbBby2Dxibuv7ZLW3Bs1QEmM7nHjEANfohJLvE0XVujisn1qPJcZxg+qDucsr+bP6fLD1rPS3AhJ7EQ==
 
-device-decoder@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/device-decoder/-/device-decoder-0.5.1.tgz#242062c0f74326bae7748502f558bf8186bbf2f3"
-  integrity sha512-bOeR32p4XjWbgmYqHUh3J58HGXCqO5r700nvyNiEgaELl7yUuE6Ejt2TAhJjLubYPvNoMLEL43S0/KQvGRSUrg==
+device-decoder@^0.5.12:
+  version "0.5.12"
+  resolved "https://registry.yarnpkg.com/device-decoder/-/device-decoder-0.5.12.tgz#aa826d1f59195af0ee50c6a7cb571cc5ff5d18a4"
+  integrity sha512-rOsVy3tkgtR0iZSO6/1/vSNYS8slVBRWd8ETUebKRUdbex+Pqy+X8jh20c9TmxjJc+NB0VDK6khfKaaYpK5lNg==
   dependencies:
     "@capacitor-community/bluetooth-le" "~3.0.0"
     brainsatplay-math "~0.0.25"
-    graphscript "~0.2.122"
-    graphscript-services "~0.2.136"
+    graphscript "~0.2.128"
+    graphscript-services "~0.2.142"
     graphscript-services.gpu "~0.2.127"
-    graphscript-services.storage "~0.2.129"
+    graphscript-services.storage "~0.2.131"
     webgl-plot-utils "~0.3.20"
 
 didyoumean@^1.2.2:
@@ -2303,7 +2303,7 @@ graphscript-services.gpu@~0.2.127:
     gpujsutils "~1.0.12"
     webgl-plot-utils "~0.3.20"
 
-graphscript-services.storage@~0.2.129:
+graphscript-services.storage@~0.2.131:
   version "0.2.131"
   resolved "https://registry.yarnpkg.com/graphscript-services.storage/-/graphscript-services.storage-0.2.131.tgz#9c78aa6dbe21c62e5c59264c8ac2d1f64564aad3"
   integrity sha512-U8ur3tOtIrCAtJnewvYBtBJ9X4f61RWviWeTVh/VWx9hbMU2NyIS1z85XqYx1o2bwX7SUvTrmeAx5TWDS1wSmA==
@@ -2313,7 +2313,7 @@ graphscript-services.storage@~0.2.129:
     gpujsutils "~1.0.12"
     webgl-plot-utils "~0.3.20"
 
-graphscript-services@~0.2.136:
+graphscript-services@~0.2.142:
   version "0.2.142"
   resolved "https://registry.yarnpkg.com/graphscript-services/-/graphscript-services-0.2.142.tgz#0a09571a7b53211c49ed2d6e201140c054e550ef"
   integrity sha512-taOynH9T06BBUl/KndI49nf2gj90uRjXvKJ4uSRaCxiNSfsM4XfnVRp4nu/5YQT6qzHo9leoE2jYhnOp7NzJow==
@@ -2324,10 +2324,10 @@ graphscript-services@~0.2.136:
     web-worker "~1.2.0"
     webgl-plot-utils "~0.3.20"
 
-graphscript@~0.2.122:
-  version "0.2.122"
-  resolved "https://registry.yarnpkg.com/graphscript/-/graphscript-0.2.122.tgz#3d96588d89983bb6a58b8c5709dfdbacfcb492b2"
-  integrity sha512-fuatrUCKpPqs53NSCkHOvgEpabD2GO3sEaIduqBoQnIWyVhnXkJMVM5Lll+V/UNQs9zMcX4oLkeqkEnyXz9QJQ==
+graphscript@~0.2.128:
+  version "0.2.128"
+  resolved "https://registry.yarnpkg.com/graphscript/-/graphscript-0.2.128.tgz#83cbac5f72e4cad592beb4faa637caafb845cf19"
+  integrity sha512-W2zNL7/MTtZzUcm5xZPEOnSKMdsRcXriQBymKrRURI98XbFjMTEqE35qYpOWnSI2WZkso4gFfoHqbmWNdtu5RA==
   dependencies:
     better-sse "^0.8.0"
     brainsatplay-math "~0.0.25"

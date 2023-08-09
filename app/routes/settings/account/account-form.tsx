@@ -6,23 +6,23 @@ import { CalendarIcon, Check, ChevronsUpDown } from "lucide-react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Calendar } from "@/components/ui/calendar"
+import { cn } from "lib/utils"
+import { Button } from "components/ui/button"
+import { Calendar } from "components/ui/calendar"
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-} from "@/components/ui/command"
-import { Input } from "@/components/ui/input"
+} from "components/ui/command"
+import { Input } from "components/ui/input"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
-import { toast } from "@/components/ui/use-toast"
+} from "components/ui/popover"
+import { toast } from "components/ui/use-toast"
 import {
   Form,
   FormControl,
@@ -31,7 +31,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/react-hook-form/form"
+} from "components/react-hook-form/form"
 
 const languages = [
   { label: "English", value: "en" },

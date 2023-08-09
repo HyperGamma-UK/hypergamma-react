@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import  { getState, subscribe, unsubscribe } from "@/app/utils/state";
+import { Card, CardContent, CardHeader, CardTitle } from "components/ui/card";
+import  { getState, subscribe, unsubscribe } from "app/utils/state";
 import { useState } from "react";
 import { CreditCard } from "lucide-react";
 

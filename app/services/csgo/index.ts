@@ -6,6 +6,11 @@ import { setState } from '../../utils/state'
 
 export const appid = 730
 
+
+import commoners from '../../../commoners.config'
+
+globalThis.commoners = commoners;
+
 const { url } = globalThis.commoners.services.csgo
 
 export const isInstalled = async () => fetch(`${url}/installed`).then((res: any) => res.json(res))

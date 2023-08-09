@@ -5,17 +5,17 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "components/ui/card"
 
-import { Select, SelectLabel, SelectTrigger, SelectContent, SelectItem, SelectValue, SelectGroup } from "@/components/ui/select"
+import { Select, SelectLabel, SelectTrigger, SelectContent, SelectItem, SelectValue, SelectGroup } from "components/ui/select"
 
 import { Activity, Battery, PowerIcon } from "lucide-react"
 
 import * as devices from '../../utils/devices';
-import { Button } from "@/components/ui/button";
-import Nav from "@/app/components/nav";
-import LiveCard from "@/app/components/live-card";
-import LiveDataChart from "@/app/components/live-data-chart";
+import { Button } from "components/ui/button";
+import Nav from "app/components/nav";
+import LiveCard from "app/components/live-card";
+import LiveDataChart from "app/components/live-data-chart";
 
 
 export default function Devices() {

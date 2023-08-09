@@ -5,18 +5,18 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "components/ui/card"
 
 import { Gamepad, Heart, LucidePersonStanding } from "lucide-react"
 
-import { buttonVariants } from "@/components/ui/button";
-import Nav from "@/app/components/nav";
+import { buttonVariants } from "components/ui/button";
+import Nav from "app/components/nav";
 
 import { isInstalled, appid } from '../../services/csgo/index'
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ButtonLoading } from "@/app/components/button-loading";
-import LiveCard, { LiveCardUpdates } from "@/app/components/live-card";
+import { ButtonLoading } from "app/components/button-loading";
+import LiveCard, { LiveCardUpdates } from "app/components/live-card";
 
 
 export default function HyperPlus() {

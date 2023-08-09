@@ -4,7 +4,7 @@
   "author": "Garrett Flynn <garrettmflynn@gmail.com>",
   "description": "Performance monitoring using fNIRS data",
   "private": true,
-  "main": "dist/main.js",
+  "main":"dist/index.js",
   "type": "module",
   "workspaces": [
     "services/**"
@@ -12,9 +12,9 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "tinybuild",
-    "tailwind": "npx tailwindcss -i ./tailwindcss/global.css -o ./app/tailwind.css --minify",
-    "build": "tsc && npm run tailwind && tinybuild build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "build": "tsc && tinybuild build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.0",
@@ -36,7 +36,6 @@
     "cmdk": "^0.2.0",
     "date-fns": "^2.30.0",
     "device-decoder": "^0.5.12",
-    "esbuild-sass-plugin": "^2.10.0",
     "lucide-react": "^0.233.0",
     "react": "^18.2.0",
     "react-day-picker": "^8.7.1",
@@ -54,8 +53,11 @@
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "autoprefixer": "^10.4.14",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
     "postcss": "^8.4.24",
-    "tailwindcss": "^3.3.3",
-    "tinybuild": "~0.8.13"
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.0.2"
   }
 }

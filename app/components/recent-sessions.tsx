@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "components/ui/avatar"
 
 const getDateFromToday = (offset = 0) => {
   const date = new Date()

@@ -1,6 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
+
+import './styles/index.css' //built by esbuild
+
+import commoners from '../commoners.config'
+globalThis.commoners = commoners;
+
 
 import {
   HashRouter, // NOTE: Must use this for Electron compatibility
@@ -14,7 +19,10 @@ import Settings from './routes/settings/layout';
 import Devices from './routes/devices';
 import HyperPlus from './routes/plus';
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+let root = document.createElement('div');
+document.body.insertAdjacentElement('afterbegin', root);
+
+ReactDOM.createRoot(root as HTMLElement).render(
   <React.StrictMode>
     <HashRouter>
       <Routes>

@@ -1,9 +1,9 @@
 
-import LiveDataChart from "@/app/components/live-data-chart"
-import LiveCard from "@/app/components/live-card"
+import LiveDataChart from "app/components/live-data-chart"
+import LiveCard from "app/components/live-card"
 
 import { Dumbbell, Focus, GlassWater } from "lucide-react"
-import { Separator } from "@/components/ui/separator"
+import { Separator } from "components/ui/separator"
 
 export default function Analytics() {
     return <>

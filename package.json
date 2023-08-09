@@ -12,7 +12,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "tinybuild",
-    "tailwind": "npx tailwindcss -i ./tailwindcss/global.css -o ./app/tailwind.css --minify",
+    "tailwind": "npx tailwindcss -i ./tailwindcss/global.css -o ./app/styles/tailwind.css --minify",
     "build": "tsc && npm run tailwind && tinybuild build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },

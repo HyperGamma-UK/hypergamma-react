@@ -101,7 +101,7 @@ export function demoFile(sensor:'fnirs'|'heg'|'breath'|'hr'|'imu', sps?, tcheck?
                     let s = sensor;
 
                     for(const key in data) {if(isNaN(data[key][0])) delete data[key];}
-                    console.log(s,data);
+                    //console.log(s,data);
                     state.setState({ [s]:data });
 
                     //const result = eventDetector(data);

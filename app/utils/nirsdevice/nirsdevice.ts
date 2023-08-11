@@ -134,7 +134,7 @@ export const nirsInit = async () => {
     }]);
 
     let withResult = (v) => {
-        console.log(v);
+        //console.log(v);
         if(v) {
             const hr = {
                 hr: v.bpm,

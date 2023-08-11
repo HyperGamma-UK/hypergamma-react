@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "app/components/ui/card";
 import  { getState, subscribe, unsubscribe } from "app/utils/state";
 import { useState } from "react";
 import { CreditCard } from "lucide-react";
@@ -29,20 +29,20 @@ export function LiveCardUpdates({
     onSecondaryUpdate = (value: any) => value
   }) {
     
-    const [ primaryUpdate, setPrimaryUpdate ] = useState(primaryState ? getState(primaryState) : {});
+    const [ primaryUpdate, setPrimaryUpdate ] = useState(primaryState ? getState(primaryState) : {});  //todo: refactor with sComponents
   
     if (primaryState) {
       const id = subscribe(primaryState, (update: any) => {
-        unsubscribe(id) // Unsubscribe previous subscription
+        unsubscribe(primaryState,id) // Unsubscribe previous subscription
         setPrimaryUpdate(update)
       })
     }
   
-    const [ secondaryUpdate, setSecondaryUpdate ] = useState(secondaryState ? getState(secondaryState) : {});
+    const [ secondaryUpdate, setSecondaryUpdate ] = useState(secondaryState ? getState(secondaryState) : {});  //todo: refactor with sComponents
   
     if (secondaryState) {
       const id = subscribe(secondaryState, (update: any) => {
-        unsubscribe(id) // Unsubscribe previous subscription
+        unsubscribe(primaryState,id) // Unsubscribe previous subscription
         setSecondaryUpdate(update)
       })
     }

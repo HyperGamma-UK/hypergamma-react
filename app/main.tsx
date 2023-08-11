@@ -3,8 +3,18 @@ import ReactDOM from 'react-dom/client'
 
 import './styles/index.css' //built by esbuild
 
+
+//wat
 import commoners from '../commoners.config'
 globalThis.commoners = commoners;
+
+//temp, runs recorded data in background
+let demoing = false;
+
+import { demo } from './utils/demo';
+if(demoing) {
+  demo();
+}
 
 
 import {

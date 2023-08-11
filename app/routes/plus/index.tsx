@@ -5,11 +5,11 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "components/ui/card"
+} from "app/components/ui/card"
 
 import { Gamepad, Heart, LucidePersonStanding } from "lucide-react"
 
-import { buttonVariants } from "components/ui/button";
+import { buttonVariants } from "app/components/ui/button";
 import Nav from "app/components/nav";
 
 import { isInstalled, appid } from '../../services/csgo/index'

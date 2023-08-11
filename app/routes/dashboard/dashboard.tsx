@@ -1,4 +1,4 @@
-// import { Button } from "components/ui/button"
+// import { Button } from "app/components/ui/button"
 
 import {
   Card,
@@ -6,9 +6,9 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "components/ui/card"
+} from "app/components/ui/card"
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "components/ui/tabs"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "app/components/ui/tabs"
 // import { CalendarDateRangePicker } from "../components/date-range-picker"
 import { Overview } from "../../components/overview"
 import { RecentSessions } from "../../components/recent-sessions"

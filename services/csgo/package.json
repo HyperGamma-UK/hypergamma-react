@@ -7,7 +7,7 @@
     "license": "AGPL-3.0-or-later",
     "private": true,
     "scripts": {
-        "start": "node index.js"
+        "start": "tinybuild && node dist/index.js"
     },
     "devDependencies": {
         "@types/cors": "^2.8.13",

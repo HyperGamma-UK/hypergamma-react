@@ -4,19 +4,19 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useFieldArray, useForm } from "react-hook-form"
 import * as z from "zod"
 
-import { cn } from "lib/utils"
-import { Button } from "components/ui/button"
-import { Input } from "components/ui/input"
+import { cn } from "tailwindcss/lib/utils"
+import { Button } from "app/components/ui/button"
+import { Input } from "app/components/ui/input"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "components/ui/select"
+} from "app/components/ui/select"
 
-import { Textarea } from "components/ui/textarea"
-import { toast } from "components/ui/use-toast"
+import { Textarea } from "app/components/ui/textarea"
+import { toast } from "app/components/ui/use-toast"
 
 import {
   Form,
@@ -26,7 +26,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "components/react-hook-form/form"
+} from "app/components/react-hook-form/form"
 
 import { Link } from "react-router-dom"
 

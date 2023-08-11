@@ -53,8 +53,8 @@ export default function LiveDataChart({
 
     const [ latestData, setData ] = useState(data);
 
-    const id = subscribe(state, (update: any) => {
-      unsubscribe(id) // Unsubscribe previous subscription
+    const id = subscribe(state, (update: any) => { //todo: refactor with sComponents
+      unsubscribe(state,id) // Unsubscribe previous subscription
 
       if (Array.isArray(update.value)) update.value.forEach((v: any) => latestData.push({ timestamp: Date.now(), [state]: v }))
       else latestData.push({ timestamp: Date.now(), [state]: update.value })

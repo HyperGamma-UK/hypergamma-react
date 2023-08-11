@@ -3,14 +3,14 @@ import { addDays, format } from "date-fns"
 import { Calendar as CalendarIcon } from "lucide-react"
 import { DateRange } from "react-day-picker"
 
-import { cn } from "lib/utils"
-import { Button } from "components/ui/button"
-import { Calendar } from "components/ui/calendar"
+import { cn } from "tailwindcss/lib/utils"
+import { Button } from "app/components/ui/button"
+import { Calendar } from "app/components/ui/calendar"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "components/ui/popover"
+} from "app/components/ui/popover"
 
 export function CalendarDateRangePicker({
   className,

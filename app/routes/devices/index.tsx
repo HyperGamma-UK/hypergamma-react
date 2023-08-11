@@ -5,23 +5,33 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "components/ui/card"
+} from "app/components/ui/card"
 
-import { Select, SelectLabel, SelectTrigger, SelectContent, SelectItem, SelectValue, SelectGroup } from "components/ui/select"
+import { Select, SelectLabel, SelectTrigger, SelectContent, SelectItem, SelectValue, SelectGroup } from "app/components/ui/select"
 
 import { Activity, Battery, PowerIcon } from "lucide-react"
 
 import * as devices from '../../utils/devices';
-import { Button } from "components/ui/button";
+import { Button } from "app/components/ui/button";
 import Nav from "app/components/nav";
 import LiveCard from "app/components/live-card";
 import LiveDataChart from "app/components/live-data-chart";
+
+import { NIRSDevice } from "app/components/nirsdevice";
 
 
 export default function Devices() {
 
   let latestValue: string | null = null
 
+  //todo...
+  return <>
+    <Nav />
+    <NIRSDevice /> 
+  </>
+
+  //renders for generic FNIRS drivers, 
+  //our main driver is special so we are still integrating it into the whole system
   return <>
     <Nav />
     <div className="flex-col md:flex">

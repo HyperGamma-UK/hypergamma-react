@@ -1,5 +1,5 @@
 {
-  "name": "Hypergamma",
+  "name": "hypergamma",
   "version": "0.0.0",
   "author": "Garrett Flynn <garrettmflynn@gmail.com>",
   "description": "Performance monitoring using fNIRS data",
@@ -11,7 +11,10 @@
   ],
   "scripts": {
     "start": "npm run dev",
+    "firstrun": "npm run tailwind && tinybuild",
     "dev": "tinybuild",
+    "csgo": "cd ./services/csgo && npm start",
+    "concurrent": "concurrently \"tinybuild\" \"cd ./services/csgo && npm start \"",
     "tailwind": "npx tailwindcss -i ./tailwindcss/global.css -o ./app/styles/tailwind.css --minify",
     "build": "tsc && npm run tailwind && tinybuild build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
@@ -31,11 +34,14 @@
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-toast": "^1.1.4",
+    "brainsatplay-math": "^0.0.33",
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
     "cmdk": "^0.2.0",
     "date-fns": "^2.30.0",
-    "device-decoder": "^0.5.12",
+    "device-decoder": "~0.6.3",
+    "graphscript": "^0.2.137",
+    "graphscript-services.storage": "^0.2.139",
     "lucide-react": "^0.233.0",
     "react": "^18.2.0",
     "react-day-picker": "^8.7.1",
@@ -45,6 +51,7 @@
     "recharts": "^2.6.2",
     "tailwind-merge": "^1.13.0",
     "tailwindcss-animate": "^1.0.5",
+    "webgl-plot-utils": "^0.4.1",
     "zod": "^3.21.4"
   },
   "devDependencies": {
@@ -53,8 +60,8 @@
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "autoprefixer": "^10.4.14",
+    "concurrently": "~8.2.0",
     "postcss": "^8.4.24",
-    "tailwindcss": "^3.3.3",
-    "tinybuild": "~0.8.13"
+    "tailwindcss": "^3.3.3"
   }
 }

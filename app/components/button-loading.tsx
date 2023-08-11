@@ -1,4 +1,4 @@
-import { Button } from "components/ui/button";
+import { Button } from "app/components/ui/button";
 import { Loader2 } from "lucide-react";
 
 export function ButtonLoading({ children = 'Please wait'}) {

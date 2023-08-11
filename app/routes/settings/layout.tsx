@@ -1,5 +1,5 @@
 
-import { Separator } from "components/ui/separator"
+import { Separator } from "app/components/ui/separator"
 import { SidebarNav } from "./components/sidebar-nav"
 import Nav from "app/components/nav"
 

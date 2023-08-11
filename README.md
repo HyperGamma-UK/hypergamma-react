@@ -14,7 +14,7 @@ Install Dependencies: `npm i`
 
 Then: `npm start`
 
-To include the csgo server: `npm run csgo`. This requires a separate program that monitors CSGO when playing and lets you link your steam account
+`npm run concurrent` runs the CSGO server in concurrence with the web server. The app can launch csgo for you.
 
 To build tailwind css specifically (we prebuilt it, unless you modify): `npm run tailwind`
 

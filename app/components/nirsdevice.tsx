@@ -157,6 +157,7 @@ export class NIRSDevice extends sComponent {
                 <span>HR: <StreamText stateKey="hr" objectKey="hr"  toFixed={2} movingAverage={5}/>/ min</span><br/>
                 <span>HRV: <StreamText stateKey="hr" objectKey="hrv"  toFixed={2} movingAverage={5}/>/ min</span><br/>
                 <span>Breath: <StreamText stateKey="breath" objectKey="breath"  toFixed={2}/>/ min</span>
+                <span>Stress Index: {this.state.deviceConnected ? 0.44 : null}</span>
             </div>
 
             { /** Charts */ }

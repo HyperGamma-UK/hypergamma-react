@@ -24,10 +24,11 @@ To build tailwind css specifically (we prebuilt it, unless you modify): `npm run
 - React
 - Web Bluetooth/Serial via graphscript
 - IndexedDB for local data
-- CSGO server socket (url for server app: )
+- CSGO server socket
 
 Todo: 
 
 - Need a standalone backend (Josh can do this if needed)
 - MongoDB (or other preferred e.g. firebase) for user accounts/subscriptions and persistent data
+- Capacitor mobile build integration (ez)
 - Some kind of profile/user system, again we have some boilerplate for this incl notifications etc..

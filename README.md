@@ -12,13 +12,11 @@ Get the bundler: `npm i -g tinybuild`
 
 Install Dependencies: `npm i`
 
-First run (builds tailwindcss first run): `npm run firstrun`
-
-After first run, simply: `npm start`
+Then: `npm start`
 
 To include the csgo server: `npm run csgo`. This requires a separate program that monitors CSGO when playing and lets you link your steam account
 
-To build tailwind css specifically: `npm run tailwind`
+To build tailwind css specifically (we prebuilt it, unless you modify): `npm run tailwind`
 
 ## Stack:
 

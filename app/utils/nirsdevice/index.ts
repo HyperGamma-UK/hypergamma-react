@@ -3,9 +3,12 @@ import gsworker from './device.worker'
 import {state} from 'graphscript'
 import { BFSRoutes, csvRoutes } from 'graphscript-services.storage';
 
-import { WGLPlotter } from './webglplot/plotter';
-import plotworker from './webglplot/canvas.worker'
+import { WGLPlotter } from '../webglplot/plotter';
+import plotworker from '../webglplot/canvas.worker'
 import { WebglLineProps } from 'webgl-plot-utils';
+
+
+//standalone (reference)
 
 let csvworker = workers.addWorker({url:gsworker});
 

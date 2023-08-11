@@ -12,7 +12,7 @@ let csvworkers = {
     heg:workers.addWorker({url:gsworker}),
     fnirs:workers.addWorker({url:gsworker}),
     hr:workers.addWorker({url:gsworker}),
-    br:workers.addWorker({url:gsworker})
+    breath:workers.addWorker({url:gsworker})
 };
 
 // let sbutton = document.createElement('button');
@@ -151,12 +151,10 @@ export const nirsInit = async () => {
                     state.data.csvs['hr'] = 'data/HRV_'+new Date().toISOString()+'.csv'; 
                     csvworkers['hr'].run('createCSV', [
                         state.data.csvs['hr'], 
-                        head, 
-                        3, //toFixed
-                        1 //bufferSize
-                    ]).then(async () => {
-                        //list();
-                    });
+                        ['timestamp','hr','hrv','height0','height1'], 
+                        5, //toFixed
+                        0 //bufferSize
+                    ]);
                 }
                 csvworkers['hr'].run('appendCSV', hr, state.data.csvs['hr']);
             }
@@ -190,12 +188,10 @@ export const nirsInit = async () => {
                     state.data.csvs['breath'] = 'data/BREATH_'+new Date().toISOString()+'.csv'; 
                     csvworkers['breath'].run('createCSV', [
                         state.data.csvs['breath'], 
-                        head, 
+                        ['timestamp','breath','brv'], 
                         3, //toFixed
-                        1 //bufferSize
-                    ]).then(async () => {
-                        //list();
-                    });
+                        0 //bufferSize
+                    ]);
                 }
                 csvworkers['breath'].run('appendCSV', br, state.data.csvs['breath']);
             }
@@ -289,20 +285,18 @@ export const nirsInit = async () => {
                                                 state.data.csvs['heg'] = 'data/HEG_'+new Date().toISOString()+'.csv'; 
                                                 csvworkers['heg'].run('createCSV', [
                                                     state.data.csvs['heg'], 
-                                                    head, 
-                                                    5, //toFixed
+                                                    ['timestamp','heg','red','infrared'], 
+                                                    3, //toFixed
                                                     50 //bufferSize
-                                                ]).then(async () => {
-                                                    //list();
-                                                });
+                                                ]);
                                             }
-                                            csvworkers['heg'].run('appendCSV', result, state.data.csvs['heg']);
+                                            csvworkers['heg'].run('appendCSV', values, state.data.csvs['heg']);
                                         }
                                         // send to the heart rate and breathing algorithm. Also count a trendline from a baseline Report results
     
                                         //set state to trigger red/infrared/ambient cumulative update
                                         let d = { 
-                                            raw:values.red+values.infrared+values.ambient, 
+                                            raw:values.heg, 
                                             timestamp:values.timestamp
                                         };
     
@@ -337,10 +331,8 @@ export const nirsInit = async () => {
                                 state.data.csvs['fnirs'], 
                                 head, 
                                 5, //toFixed
-                                100 //bufferSize
-                            ]).then(async () => {
-                                //list();
-                            });
+                                21 //bufferSize
+                            ]);
                         }
                         csvworkers['fnirs'].run('appendCSV', result, state.data.csvs['fnirs']);
                     }

@@ -15,7 +15,7 @@ export class NIRSDevice extends sComponent {
         deviceConnected:false,
         deviceRecording:false,
         device:undefined as BLEDeviceStream,
-        filelist:[] as any
+        files:[] as any
     }
 
     canvas=document.createElement('canvas');
@@ -88,6 +88,8 @@ export class NIRSDevice extends sComponent {
         this.sub2 = state.subscribeEvent('heg', (data) => {
             this.plotter2.__operator(data);
         });
+
+        this.list();
     }
 
     componentWillUnmount(): void {
@@ -112,16 +114,16 @@ export class NIRSDevice extends sComponent {
     
             files.push(
                 <div id={file}>
-                    <span>{file}
-                    <button onClick={download} id="dl">Download</button>
-                    <button onClick={deleteFile} id="del">Delete</button>
-                    </span>
+                    <div>{file}
+                        <button onClick={download} id="dl">Download</button>
+                        <button onClick={deleteFile} id="del">Delete</button>
+                    </div>
                 </div>
             );
     
         });
 
-        this.setState({filelist})
+        this.setState({files})
     }
 
     render() { //do whatever with this just keep the functions somewhere on the same page
@@ -156,7 +158,7 @@ export class NIRSDevice extends sComponent {
                 <span>HEG: <StreamText stateKey="heg" objectKey="heg" toFixed={2} movingAverage={10}/></span><br/>
                 <span>HR: <StreamText stateKey="hr" objectKey="hr"  toFixed={2} movingAverage={5}/>/ min</span><br/>
                 <span>HRV: <StreamText stateKey="hr" objectKey="hrv"  toFixed={2} movingAverage={5}/>/ min</span><br/>
-                <span>Breath: <StreamText stateKey="breath" objectKey="breath"  toFixed={2}/>/ min</span>
+                <span>Breath: <StreamText stateKey="breath" objectKey="breath"  toFixed={2}/>/ min</span><br/>
                 <span>Stress Index: {this.state.deviceConnected ? 0.44 : null}</span>
             </div>
 
@@ -179,7 +181,7 @@ export class NIRSDevice extends sComponent {
             <div>
                 Recordings<br/>
                 { /** Recordings */ }
-                { ...this.state.filelist }
+                { ...this.state.files }
             </div>
             </>
         ) 

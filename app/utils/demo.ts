@@ -3,10 +3,10 @@ import { parseCSVData } from 'graphscript-services.storage';
 import {state} from './state';
 
 export const recordingsList = {
-    heg:'./recordings/JoshuaBrewster_PPG_2023-05-16T03_00_47.662Z.csv',
-    hr:'./recordings/JoshuaBrewster_HRV_2023-05-16T03_00_47.662Z.csv',
-    breath:'./recordings/JoshuaBrewster_BREATH_2023-05-16T03_00_47.662Z.csv',
-    fnirs:'./recordings/JoshuaBrewster_PPG_2023-05-16T03_00_47.662Z.csv'
+    heg:'./recordings/HEG_2023-08-11T03_20_27.528Z.csv',
+    hr:'./recordings/HRV_2023-08-11T03_20_27.978Z.csv',
+    breath:'./recordings/BREATH_2023-08-11T03_20_36.573Z.csv',
+    fnirs:'./recordings/FNIRS_2023-08-11T03_20_27.528Z.csv'
 };
 
 export async function readTextFile(file) { //https://stackoverflow.com/questions/39662388/javascript-filereader-onload-get-file-from-server
@@ -30,7 +30,7 @@ export function demoFile(sensor:'fnirs'|'heg'|'breath'|'hr'|'imu', sps?, tcheck?
     //make some assumptions
     if(!sps) {
         if(sensor === 'fnirs') sps = 20;
-        else if(sensor === 'heg') sps = 10;
+        else if(sensor === 'heg') sps = 11;
         else if(sensor === 'hr') sps = 1;
         else if(sensor === 'breath') sps = 0.166667;
         else if (sensor === 'imu') tcheck = 100;
@@ -38,7 +38,7 @@ export function demoFile(sensor:'fnirs'|'heg'|'breath'|'hr'|'imu', sps?, tcheck?
 
     if(!tcheck) {
         if(sensor === 'fnirs') tcheck = 1000/20;
-        else if(sensor === 'heg') tcheck = 1000/20;
+        else if(sensor === 'heg') tcheck = 1000/11;
         else if (sensor === 'imu') tcheck = 333;
         else if(sensor === 'hr') tcheck = 1000;
         else if(sensor === 'breath') tcheck = 1000/0.166667;
@@ -99,6 +99,9 @@ export function demoFile(sensor:'fnirs'|'heg'|'breath'|'hr'|'imu', sps?, tcheck?
 
                     //console.log('data', data);
                     let s = sensor;
+
+                    for(const key in data) {if(isNaN(data[key][0])) delete data[key];}
+                    console.log(s,data);
                     state.setState({ [s]:data });
 
                     //const result = eventDetector(data);

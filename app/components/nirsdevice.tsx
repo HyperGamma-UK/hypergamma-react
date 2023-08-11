@@ -35,6 +35,7 @@ export class NIRSDevice extends sComponent {
         this.canvas.height = 600;
         this.canvas.style.width = "100%";
         this.canvas.style.height = "500px";
+        this.canvas.style.backgroundColor = 'black';
 
         this.overlay.width = 800;
         this.overlay.height = 600;
@@ -49,6 +50,7 @@ export class NIRSDevice extends sComponent {
         this.canvas2.height = 300;
         this.canvas2.style.width = "100%";
         this.canvas2.style.height = "150px";
+        this.canvas2.style.backgroundColor = 'black';
 
         this.overlay2.width = 800;
         this.overlay2.height = 300;

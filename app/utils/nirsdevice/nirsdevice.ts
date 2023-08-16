@@ -286,10 +286,10 @@ export const nirsInit = async () => {
                                             state.setValue('heg', values);
                                         }
                                         values.timestamp = data.timestamp[0];
-                          
+                                        
                                         if(state.data.deviceRecording) {
 
-                                            if(Object.keys(channelValues).length === head.length) {
+                                            if(Object.keys(channelValues).length === head.length-1) {
                                                 channelValues.timestamp = result.timestamp;
                                                 if(!state.data.csvs['fnirs']) {
                                                     state.data.csvs['fnirs'] = 'data/FNIRS_'+new Date().toISOString()+'.csv'; 

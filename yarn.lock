@@ -1996,7 +1996,7 @@ http-errors@2.0.0:
     statuses "2.0.1"
     toidentifier "1.0.1"
 
-"hypergamma-local-backend@file:C:\\Users\\brews\\Documents\\Github\\hypergamma-react\\services\\csgo":
+"hypergamma-local-backend@file:C:\\Users\\brews\\Documents\\GitHub\\hypergamma-react\\services\\csgo":
   version "0.0.0"
   resolved "file:services/csgo"
   dependencies:

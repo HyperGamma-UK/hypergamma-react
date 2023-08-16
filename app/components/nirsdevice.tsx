@@ -156,7 +156,7 @@ export class NIRSDevice extends sComponent {
             }
 
             { /** Heart rate, HRV, breathing. Todo, add animated icons (see SVG folder) */ }
-            <div>
+            <div style={{float:'right', fontWeight:'bolder'}}>
                 <span>HEG: <StreamText stateKey="heg" objectKey="heg" toFixed={2} movingAverage={10}/></span><br/>
                 <span>HR: <StreamText stateKey="hr" objectKey="hr"  toFixed={2} movingAverage={5}/>/ min</span><br/>
                 <span>HRV: <StreamText stateKey="hr" objectKey="hrv"  toFixed={2} movingAverage={5}/>/ min</span><br/>

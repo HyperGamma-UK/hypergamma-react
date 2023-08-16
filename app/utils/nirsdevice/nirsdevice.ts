@@ -1,5 +1,5 @@
 import {Devices, ads131m08FilterSettings, initDevice, workers, ads131m08ChartSettings
-} from '../../../../device_debugger/src/device.frontend' //'device-decoder'//
+} from  'device-decoder'//'../../../../device_debugger/src/device.frontend'
 import gsworker from './device.worker'
 import {state} from 'graphscript'
 import {Math2} from 'brainsatplay-math'

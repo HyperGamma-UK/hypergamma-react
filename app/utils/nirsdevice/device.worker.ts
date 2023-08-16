@@ -8,8 +8,8 @@ import {
 
 import { webglPlotRoutes } from 'graphscript-services'; //"../../graphscript/extras/index.services"//
 
-import { streamWorkerRoutes } from 'device-decoder/src/stream.routes';
-import {Devices} from 'device-decoder'//'../device_debugger/src/device.frontend'
+import { streamWorkerRoutes } from 'device-decoder'////'device-decoder/src/stream.routes';
+import {Devices} from 'device-decoder'//'../../../../device_debugger/src/device.frontend'//
 
 import { 
     csvRoutes,

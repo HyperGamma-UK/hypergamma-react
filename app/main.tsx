@@ -9,7 +9,7 @@ import commoners from '../commoners.config'
 globalThis.commoners = commoners;
 
 //temp, runs recorded data in background
-let demoing = true;
+let demoing = false;
 
 import { demo } from './utils/demo';
 if(demoing) {

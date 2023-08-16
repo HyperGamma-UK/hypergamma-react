@@ -1,4 +1,5 @@
-import {Devices, ads131m08FilterSettings, initDevice, workers, ads131m08ChartSettings} from 'device-decoder'//'../device_debugger/src/device.frontend'
+import {Devices, ads131m08FilterSettings, initDevice, workers, ads131m08ChartSettings
+} from '../../../../device_debugger/src/device.frontend' //'device-decoder'//
 import gsworker from './device.worker'
 import {state} from 'graphscript'
 import {Math2} from 'brainsatplay-math'
@@ -81,23 +82,6 @@ let head = ['timestamp'] as any[];
 
 export let lines = {} as any;
 
-selectedChannels.forEach((ch) => {
-    let chAssignment = getChannelAssignment(ch);
-    ledGPIO.forEach((io) => {
-        let ledAssignment = getLEDAssignment(io);
-        lines[ledAssignment+'_'+chAssignment] = { sps:20, nSec:10 };
-        head.push(ledAssignment+'_'+chAssignment);
-    })
-}) 
-
-
-//set scaling (temp)
-for(const key in ads131m08FilterSettings) {
-    ads131m08FilterSettings[key].useScaling = false;
-}
-
-
-
 let values = {
     ambient:0,
     red:0,
@@ -105,6 +89,27 @@ let values = {
     heg:0,
     timestamp:0
 };
+
+let channelValues = {} as any;
+
+selectedChannels.forEach((ch) => {
+    let chAssignment = getChannelAssignment(ch);
+    ledGPIO.forEach((io) => {
+        let ledAssignment = getLEDAssignment(io);
+        let tag = ledAssignment+'_'+chAssignment;
+        lines[tag] = { sps:20, nSec:10 };
+        head.push(tag);
+    })
+}) 
+
+
+//set scaling (temp)
+for(const key in ads131m08FilterSettings) {
+    ads131m08FilterSettings[key].useScaling = true;
+}
+
+
+
 
 //toggleNRF5xSingleEnded(true);
 
@@ -253,6 +258,8 @@ export const nirsInit = async () => {
                                 }
 
                                 lastResult[ch] = result[ch]; //persistent results
+                                values[ch] = result[ch];
+                                channelValues[ch] = result[ch];
 
                                 if(typeof val === 'number') {
                                     if(ledAssignments[lastLED] === 'red') {
@@ -281,6 +288,23 @@ export const nirsInit = async () => {
                                         values.timestamp = data.timestamp[0];
                           
                                         if(state.data.deviceRecording) {
+
+                                            if(Object.keys(channelValues).length === head.length) {
+                                                channelValues.timestamp = result.timestamp;
+                                                if(!state.data.csvs['fnirs']) {
+                                                    state.data.csvs['fnirs'] = 'data/FNIRS_'+new Date().toISOString()+'.csv'; 
+                                                    csvworkers['fnirs'].run('createCSV', [
+                                                        state.data.csvs['fnirs'], 
+                                                        head, 
+                                                        5, //toFixed
+                                                        21 //bufferSize
+                                                    ]);
+                                                }
+                                                csvworkers['fnirs'].run('appendCSV', channelValues, state.data.csvs['fnirs']);
+                                                channelValues = {};
+                                            }
+
+
                                             if(!state.data.csvs['heg']) {
                                                 state.data.csvs['heg'] = 'data/HEG_'+new Date().toISOString()+'.csv'; 
                                                 csvworkers['heg'].run('createCSV', [
@@ -309,6 +333,8 @@ export const nirsInit = async () => {
                                         values.red = 0;
                                         values.infrared = 0;
                                         values.ambient = 0;
+
+                                        
                                     }
                                 }
                                 
@@ -318,25 +344,13 @@ export const nirsInit = async () => {
                         selectedChannels.forEach(withChannel);
 
                         lastLED = v;
+
+    
                     }
 
                     data.leds.forEach(withLED);
 
                     //plotter.__operator(result);
-
-                    if(state.data.deviceRecording) {
-                        if(!state.data.csvs['fnirs']) {
-                            state.data.csvs['fnirs'] = 'data/FNIRS_'+new Date().toISOString()+'.csv'; 
-                            csvworkers['fnirs'].run('createCSV', [
-                                state.data.csvs['fnirs'], 
-                                head, 
-                                5, //toFixed
-                                21 //bufferSize
-                            ]);
-                        }
-                        csvworkers['fnirs'].run('appendCSV', result, state.data.csvs['fnirs']);
-                    }
-
                     state.setValue('fnirs', result);
                 }
             },

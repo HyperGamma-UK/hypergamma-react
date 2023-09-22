@@ -2,19 +2,17 @@
   "name": "Hypergamma",
   "version": "0.0.0",
   "author": "Garrett Flynn <garrettmflynn@gmail.com>",
+  "main": "dist/.commoners/main/index.js",
   "description": "Performance monitoring using fNIRS data",
   "private": true,
-  "main": "./dist/.commoners/main/index.js",
   "type": "module",
   "workspaces": [
     "services/**"
   ],
   "scripts": {
-    "start": "npm run dev",
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "start": "commoners start",
+    "dev": "commoners dev",
+    "build": "commoners build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.0",
@@ -54,6 +52,9 @@
     "@typescript-eslint/parser": "^5.59.0",
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.14",
+    "@commoners/bluetooth": "0.0.0",
+    "@commoners/serial": "0.0.0",
+    "commoners": "0.0.5",
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",

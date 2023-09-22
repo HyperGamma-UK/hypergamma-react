@@ -1,11 +1,16 @@
+import * as bluetoothPlugin from '@commoners/bluetooth'
+import * as serialPlugin from '@commoners/serial'
+
 export default {
+
     services: {
         csgo: './services/csgo/index.ts'
     },
 
-    plugins: {
-        bluetooth: true
-    },
+    plugins: [
+        bluetoothPlugin,
+        serialPlugin
+    ],
 
     electron: {
         window: {

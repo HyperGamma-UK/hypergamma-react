@@ -1,6 +1,9 @@
 examples
 build
 
+.lock
+*-lock.json
+
 # Logs
 logs
 *.log

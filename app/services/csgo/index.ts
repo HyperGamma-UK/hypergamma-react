@@ -6,7 +6,7 @@ import { setState } from '../../utils/state'
 
 export const appid = 730
 
-const { url } = globalThis.COMMONERS.services.csgo
+const { url } = globalThis.COMMONERS?.services?.csgo ?? {}
 
 export const isInstalled = async () => fetch(`${url}/installed`).then((res: any) => res.json(res))
 
